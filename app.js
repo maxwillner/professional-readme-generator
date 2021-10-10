@@ -3,15 +3,6 @@ const fs = require('fs');
 const generatePage = require('./src/page-template.js');
 
 
-// const pageHMTL = generatePage(name, github); 
-
-
-// fs.writeFile('index.html', pageHTML, err => {
-//     if (err) throw err;
-  
-//     console.log('ReadMe complete! Check out ReadMe.html to see the output!');
-// });
-
 const promptUser = readmeInputs => {
     if (!readmeInputs) {
         readmeInputs = [];
@@ -108,4 +99,12 @@ const promptUser = readmeInputs => {
 };
 
 promptUser()
-    .then(readmeInputs => console.log(readmeInputs));
+    .then(readmeInputs => {
+        const pageHTML = generatePage(readmeInputs); 
+
+        fs.writeFile('index.html', pageHTML, err => {
+            if (err) throw err;
+
+            console.log('ReadMe complete! Check out ReadMe.html to see the output!');
+});
+});
