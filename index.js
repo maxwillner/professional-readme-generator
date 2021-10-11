@@ -102,9 +102,9 @@ promptUser()
     .then(readmeInputs => {
         const pageHTML = generatePage(readmeInputs); 
 
-        fs.writeFile('index.html', pageHTML, err => {
+        fs.writeFile('readme.md', pageHTML, err => {
             if (err) throw err;
 
-            console.log('ReadMe complete! Check out ReadMe.html to see the output!');
+            console.log('ReadMe complete! Check out readme.md to see the output!');
 });
 });
